@@ -3,45 +3,69 @@
 @tailwind utilities;
 
 * {
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
 }
 *::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+    display: none; /* Safari and Chrome */
 }
 
 * {
-  transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 @keyframes appears {
-  0% {
-    opacity: 0;
-    transform: translateY(20px) scale(0);
-  }
-  60% {
-    transform: translateY(0) scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0);
+    }
+    60% {
+        transform: translateY(0) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
 }
 
 .appears {
-  animation: appears 1s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: appears 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .fadeIn {
-  animation: fadeIn 1s ease;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes toast-bounce-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-40%) scale(0.9);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(10%) scale(1.05);
+    }
+    65% {
+        transform: translateY(-5%) scale(0.97);
+    }
+    85% {
+        transform: translateY(3%) scale(1.02);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.toast-bounce-in {
+    animation: toast-bounce-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
