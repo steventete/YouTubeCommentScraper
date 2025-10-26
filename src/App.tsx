@@ -59,7 +59,7 @@ declare global {
         youtube: {
           commentThreads: {
             list: (
-              params: CommentThreadsListParams
+              params: CommentThreadsListParams,
             ) => Promise<YouTubeApiResponse>;
           };
         };
@@ -74,7 +74,7 @@ export default function App() {
   const [videoId, setVideoId] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  const [maxResults, setMaxResults] = useState<number>(50);
+  const [maxResults, setMaxResults] = useState<number>(100);
 
   useEffect(() => {
     const initializeGapi = async () => {
@@ -126,7 +126,7 @@ export default function App() {
             item.snippet.topLevelComment.snippet.authorProfileImageUrl,
           publishedAt: item.snippet.topLevelComment.snippet.publishedAt,
           textDisplay: item.snippet.topLevelComment.snippet.textDisplay,
-        })
+        }),
       );
 
       setComments((prevComments) => [...prevComments, ...newComments]);

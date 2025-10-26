@@ -8,7 +8,7 @@ interface CommentFormProps {
 
 export const CommentForm: React.FC<CommentFormProps> = ({ onSubmit }) => {
   const [inputValue, setInputValue] = useState("");
-  const [maxResults, setMaxResults] = useState(50);
+  const [maxResults, setMaxResults] = useState(100);
   const [errorMessage, setErrorMessage] = useState("");
 
   // Validates if the provided input is a YouTube URL or valid video ID
