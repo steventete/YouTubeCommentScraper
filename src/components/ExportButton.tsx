@@ -10,24 +10,30 @@ interface Comment {
 
 interface ExportButtonProps {
   comments: Comment[];
+  videoId: String;
 }
 
-export const ExportButton: React.FC<ExportButtonProps> = ({ comments }) => {
+export const ExportButton: React.FC<ExportButtonProps> = ({
+  comments,
+  videoId,
+}) => {
+  const fileBaseName = videoId ? `comments_${videoId}` : "comments";
+
   // Exportar a TXT
   const exportToTxt = () => {
     const blob = new Blob(
       [
         comments
           .map(
-            (comment) => `${comment.authorDisplayName}: ${comment.textDisplay}`
+            (comment) => `${comment.authorDisplayName}: ${comment.textDisplay}`,
           )
           .join("\n\n"),
       ],
-      { type: "text/plain" }
+      { type: "text/plain" },
     );
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "comments.txt";
+    link.download = `${fileBaseName}.txt`;
     link.click();
   };
 
@@ -48,7 +54,7 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ comments }) => {
     const blob = new Blob([csvContent], { type: "text/csv" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "comments.csv";
+    link.download = `${fileBaseName}.csv`;
     link.click();
   };
 
@@ -58,7 +64,7 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ comments }) => {
     const blob = new Blob([jsonContent], { type: "application/json" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "comments.json";
+    link.download = `${fileBaseName}.json`;
     link.click();
   };
 

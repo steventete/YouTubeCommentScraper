@@ -19,9 +19,6 @@ Welcome to **YouTube Comment Scraper**, your sleek and intuitive tool for extrac
 - **Real-time Pagination**: Load comments progressively for large datasets without overwhelming the system.
 - **Easy to Use**: Enter a YouTube video ID, set your preferences, and scrape away!
 
-> [!TIP]  
-> For optimal performance, ensure you use a valid YouTube video ID.
-
 ## Technologies Used
 
 This project is powered by:
